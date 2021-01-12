@@ -6,6 +6,7 @@ import {
   parseTime,
   downloadFile
 } from '@/utils/index'
+// 引入时间转换为字符串和下载文件公用方法
 
 export default {
   data() {

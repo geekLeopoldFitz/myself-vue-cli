@@ -1,4 +1,4 @@
-<!-- @author zhengjie -->
+<!-- @author 菜单管理中选择已有的SVG图标插件 -->
 <template>
   <div class="icon-body">
     <el-input v-model="name" style="position: relative;" clearable placeholder="请输入图标名称" @clear="filterIcons" @input.native="filterIcons">

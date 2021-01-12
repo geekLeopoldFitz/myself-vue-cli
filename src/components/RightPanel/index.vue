@@ -1,3 +1,4 @@
+<!--右侧抽屉的系统布局设置封装-->
 <template>
   <div ref="rightPanel" :class="{show:show}" class="rightPanel-container">
     <div class="rightPanel-background" />

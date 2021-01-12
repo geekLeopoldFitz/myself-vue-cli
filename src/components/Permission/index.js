@@ -1,5 +1,5 @@
 import permission from './permission'
-
+// 注册或获取全局指令
 const install = function(Vue) {
   Vue.directive('permission', permission)
 }

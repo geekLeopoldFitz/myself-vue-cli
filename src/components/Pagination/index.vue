@@ -15,6 +15,7 @@
 </template>
 
 <script>
+// table中的分页
 import { scrollTo } from '@/utils/scroll-to'
 
 export default {

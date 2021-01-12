@@ -25,6 +25,7 @@ module.exports = {
       warnings: false,
       errors: true
     },
+    // 代理后端接口
     proxy: {
       '/api': {
         target: process.env.VUE_APP_BASE_API,
@@ -41,6 +42,7 @@ module.exports = {
         }
       }
     }
+    // before: require('./mock/mock-server.js') // 使用模拟数据
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that

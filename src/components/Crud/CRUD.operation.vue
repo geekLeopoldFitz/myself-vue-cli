@@ -101,6 +101,8 @@
   </div>
 </template>
 <script>
+
+// table中的操作功能封装
 import CRUD, { crud } from '@crud/crud'
 
 function sortWithRef(src, ref) {

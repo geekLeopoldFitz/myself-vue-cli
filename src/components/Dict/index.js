@@ -1,3 +1,4 @@
+// 数据字典相关配置
 import Dict from './Dict'
 
 const install = function(Vue) {

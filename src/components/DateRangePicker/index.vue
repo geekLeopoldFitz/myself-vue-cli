@@ -1,4 +1,5 @@
 <script>
+// 范围时间选择插件
 import { DatePicker, DatePickerOptions } from 'element-ui'
 import { calendarShortcuts } from '@/utils/shortcuts'
 

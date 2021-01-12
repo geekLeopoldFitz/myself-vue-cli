@@ -8,7 +8,7 @@
 <script>
 import { crud } from '@crud/crud'
 export default {
-  mixins: [crud()],
+  mixins: [crud()], // 在实例中使用crud方法
   props: {
     itemClass: {
       type: String,

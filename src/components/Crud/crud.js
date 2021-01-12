@@ -2,9 +2,9 @@ import { initData, download } from '@/api/data'
 import { parseTime, downloadFile } from '@/utils/index'
 import Vue from 'vue'
 
+// table常用增加(Create)、检索(Retrieve)、更新(Update)和删除(Delete)操作封装
 /**
  * CRUD配置
- * @author moxun
  * @param {*} options <br>
  * @return crud instance.
  * @example
@@ -32,7 +32,7 @@ function CRUD(options) {
     // 重置表单
     defaultForm: () => {},
     // 排序规则，默认 id 降序， 支持多字段排序 ['id,desc', 'createTime,asc']
-    sort: ['id,desc'],
+    // sort: ['id,desc'],
     // 等待时间
     time: 50,
     // CRUD Method
@@ -350,7 +350,7 @@ function CRUD(options) {
       return {
         page: crud.page.page - 1,
         size: crud.page.size,
-        sort: crud.sort,
+        // sort: crud.sort,
         ...crud.query,
         ...crud.params
       }
@@ -705,12 +705,12 @@ function header() {
         query: this.crud.query
       }
     },
-    beforeCreate() {
-      this.crud = lookupCrud(this)
-      this.crud.registerVM('header', this, 1)
+    beforeCreate(vm, tag) {
+      this.crud = lookupCrud(this, tag) // 查找crud
+      this.crud.registerVM('header', this, 1) // 注册组件实例
     },
     destroyed() {
-      this.crud.unregisterVM('header', this)
+      this.crud.unregisterVM('header', this) // 取消注册组件实例
     }
   }
 }
@@ -726,8 +726,8 @@ function pagination() {
         page: this.crud.page
       }
     },
-    beforeCreate() {
-      this.crud = lookupCrud(this)
+    beforeCreate(vm, tag) {
+      this.crud = lookupCrud(this, tag)
       this.crud.registerVM('pagination', this, 2)
     },
     destroyed() {
@@ -747,8 +747,8 @@ function form(defaultForm) {
         form: this.crud.form
       }
     },
-    beforeCreate() {
-      this.crud = lookupCrud(this)
+    beforeCreate(vm, tag) {
+      this.crud = lookupCrud(this, tag)
       this.crud.registerVM('form', this, 3)
     },
     created() {
@@ -775,8 +775,8 @@ function crud(options = {}) {
         crud: this.crud
       }
     },
-    beforeCreate() {
-      this.crud = lookupCrud(this)
+    beforeCreate(vm, tag) {
+      this.crud = lookupCrud(this, tag)
       this.crud.registerVM(options.type, this)
     },
     destroyed() {

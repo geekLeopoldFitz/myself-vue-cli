@@ -5,9 +5,6 @@ import Cookies from 'js-cookie'
 import 'normalize.css/normalize.css'
 
 import Element from 'element-ui'
-//
-import mavonEditor from 'mavon-editor'
-import 'mavon-editor/dist/css/index.css'
 
 // 数据字典
 import dict from './components/Dict'
@@ -32,7 +29,6 @@ import './router/index' // permission control
 
 Vue.use(checkPer)
 Vue.use(VueHighlightJS)
-Vue.use(mavonEditor)
 Vue.use(permission)
 Vue.use(dict)
 Vue.use(Element, {

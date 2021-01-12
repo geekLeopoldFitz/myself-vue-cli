@@ -7,7 +7,7 @@ const tokens = {
     token: 'editor-token'
   }
 }
-
+// 动态路由模拟数据
 const dynamicRoutes = [
   {
     alwaysShow: true,
@@ -99,15 +99,19 @@ const dynamicRoutes = [
 const users = {
   'admin-token': {
     roles: ['admin'],
-    introduction: 'I am a super administrator',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-    name: 'Super Admin'
-  },
-  'editor-token': {
-    roles: ['editor'],
-    introduction: 'I am an editor',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-    name: 'Normal Editor'
+    user: {
+      createTime: '2018-08-23 09:11:56',
+      email: 'admin@el-admin.vip',
+      enabled: true,
+      gender: '男',
+      id: 1,
+      nickName: '管理员',
+      phone: '18888888888',
+      pwdResetTime: '2020-05-03 16:38:31',
+      updateTime: '2020-09-05 10:43:31',
+      updatedBy: 'admin',
+      username: 'admin'
+    }
   }
 }
 
@@ -119,6 +123,7 @@ module.exports = [
     response: config => {
       const { username } = config.body
       const token = tokens[username]
+      const info = users[token]
 
       // mock error
       if (!token) {
@@ -130,7 +135,10 @@ module.exports = [
 
       return {
         code: 200,
-        data: token
+        data: {
+          token,
+          info
+        }
       }
     }
   },

@@ -705,8 +705,8 @@ function header() {
         query: this.crud.query
       }
     },
-    beforeCreate(vm, tag) {
-      this.crud = lookupCrud(this, tag) // 查找crud
+    beforeCreate() {
+      this.crud = lookupCrud(this) // 查找crud
       this.crud.registerVM('header', this, 1) // 注册组件实例
     },
     destroyed() {
@@ -726,8 +726,8 @@ function pagination() {
         page: this.crud.page
       }
     },
-    beforeCreate(vm, tag) {
-      this.crud = lookupCrud(this, tag)
+    beforeCreate() {
+      this.crud = lookupCrud(this)
       this.crud.registerVM('pagination', this, 2)
     },
     destroyed() {
@@ -747,8 +747,8 @@ function form(defaultForm) {
         form: this.crud.form
       }
     },
-    beforeCreate(vm, tag) {
-      this.crud = lookupCrud(this, tag)
+    beforeCreate() {
+      this.crud = lookupCrud(this)
       this.crud.registerVM('form', this, 3)
     },
     created() {
@@ -775,8 +775,8 @@ function crud(options = {}) {
         crud: this.crud
       }
     },
-    beforeCreate(vm, tag) {
-      this.crud = lookupCrud(this, tag)
+    beforeCreate() {
+      this.crud = lookupCrud(this)
       this.crud.registerVM(options.type, this)
     },
     destroyed() {

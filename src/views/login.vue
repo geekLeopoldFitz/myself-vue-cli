@@ -44,7 +44,7 @@
 <script>
 import { encrypt } from '@/utils/rsaEncrypt'
 import Config from '@/settings'
-import { getCodeImg } from '@/api/login'
+// import { getCodeImg } from '@/api/login'
 import Cookies from 'js-cookie'
 import Background from '@/assets/images/background.jpg'
 export default {
@@ -86,12 +86,12 @@ export default {
     this.point()
   },
   methods: {
-    getCode() {
+    /* getCode() {
       getCodeImg().then(res => {
         this.codeUrl = res.img
         this.loginForm.uuid = res.uuid
       })
-    },
+    },*/
     getCookie() {
       const username = Cookies.get('username')
       let password = Cookies.get('password')
@@ -134,7 +134,7 @@ export default {
             this.$router.push({ path: this.redirect || '/' })
           }).catch(() => {
             this.loading = false
-            this.getCode()
+            // this.getCode()
           })
         } else {
           console.log('error submit!!')

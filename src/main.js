@@ -27,6 +27,19 @@ import router from './router/routers'
 import './assets/icons' // icon
 import './router/index' // permission control
 
+/**
+ * 如果你不想使用 mock-server
+ * 您想将MockJs用于模拟API
+ * you can execute: mockXHR()
+ *
+ * 目前，MockJs将用于生产环境,
+ * 请先删除它，然后再上网 ! ! !
+ */
+if (process.env.NODE_ENV === 'production') {
+  const { mockXHR } = require('../mock')
+  mockXHR()
+}
+
 Vue.use(checkPer)
 Vue.use(VueHighlightJS)
 Vue.use(permission)

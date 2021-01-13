@@ -13,23 +13,17 @@ export function login(username, password, code, uuid) {
   })
 }
 
-export function getInfo() {
+export function getInfo(token) {
   return request({
-    url: '/myself_vue_cli/user/login/info',
-    method: 'get'
-  })
-}
-
-export function getCodeImg() {
-  return request({
-    url: 'auth/code',
-    method: 'get'
+    url: '/myself_vue_cli/user/info',
+    method: 'get',
+    params: { token }
   })
 }
 
 export function logout() {
   return request({
-    url: '/myself_vue_cli/user/login/logout',
-    method: 'delete'
+    url: '/myself_vue_cli/user/logout',
+    method: 'post'
   })
 }
